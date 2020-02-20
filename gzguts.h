@@ -24,6 +24,9 @@
 #  include <string.h>
 #  include <stdlib.h>
 #  include <limits.h>
+#endif
+
+#ifndef _WIN32
 #  include <unistd.h>
 #endif
 
