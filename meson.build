@@ -4,8 +4,14 @@ src = ['adler32.c', 'crc32.c', 'deflate.c', 'infback.c', 'inffast.c', 'inflate.c
 'inftrees.c', 'trees.c', 'zutil.c',
 'compress.c', 'uncompr.c', 'gzclose.c', 'gzlib.c', 'gzread.c', 'gzwrite.c']
 
+cflags = ['-DZLIB_DLL']
+
+if host_machine.system() == 'ios' and get_option('default_library') == 'static'
+  cflags += ['-fembed-bitcode']
+endif
+
 zlib = library('z', src,
-  c_args : ['-DZLIB_DLL'],
+  c_args : cflags,
   version : meson.project_version(),
   install : true)
 
