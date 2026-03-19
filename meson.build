@@ -19,7 +19,7 @@ install_headers('zlib.h', 'zconf.h')
 
 # pkg-config file
 zlib_pc_conf = configuration_data()
-zlib_pc_conf.set('prefix', join_paths (get_option('prefix')))
+zlib_pc_conf.set('prefix', '${prefix}/../..')
 zlib_pc_conf.set('exec_prefix', '${prefix}')
 zlib_pc_conf.set('libdir', '${prefix}/@0@'.format(get_option('libdir')))
 zlib_pc_conf.set('sharedlibdir', '${libdir}')
